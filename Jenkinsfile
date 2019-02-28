@@ -1,14 +1,11 @@
 pipeline {
-  agent any
+  agent{
+    dockerfile true
+  }
   stages {
-    stage('myStage'){
-      steps {
-        sh 'ls -la' 
-      }
-    }
     stage('Build') {
       steps { 
-        sh 'ls' 
+        echo 'Hello World!' 
       }
     }
   }
