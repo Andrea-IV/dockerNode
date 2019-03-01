@@ -34,10 +34,5 @@ module.exports = function(sequelize, DataTypes){
 		timestamps: false,
 		freezeTableName: true
 	});
-	Product.associate = _associate;
 	return Product;
-}
-
-function _associate(models){
-		models.Product.belongsTo(models.Promotion, { foreignKey: 'id_promotion', targetKey: 'id' });
 }

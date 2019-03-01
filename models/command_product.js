@@ -22,13 +22,5 @@ module.exports = function(sequelize, DataTypes){
 		timestamps: false,
 		freezeTableName: true
 	});
-	ProductCommand.associate = _associate;
 	return ProductCommand;
-}
-
-function _associate(models){
-	models.Product.belongsToMany(models.Command, { through: models.ProductCommand, foreignKey: 'id_product', targetKey: 'id'})
-	models.Menu.belongsToMany(models.Command, { through: models.ProductCommand, foreignKey: 'id_menu', targetKey: 'id'})
-	models.Command.belongsToMany(models.Product, { through: models.ProductCommand, foreignKey: 'id_command', targetKey: 'id'})
-	models.Command.belongsToMany(models.Menu, { through: models.ProductCommand, foreignKey: 'id_command', targetKey: 'id'})
 }

@@ -10,6 +10,8 @@ COPY package*.json ./
 
 RUN npm install
 RUN npm install mocha
+RUN npm update
+
 # If you are building your code for production
 # RUN npm ci --only=production
 
@@ -17,4 +19,5 @@ RUN npm install mocha
 COPY . .
 
 EXPOSE 8081
-CMD [ "npm", "start" ]
+
+RUN ./node_modules/mocha/bin/mocha

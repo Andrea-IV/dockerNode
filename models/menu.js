@@ -35,11 +35,5 @@ module.exports = function (sequelize, DataTypes) {
 		freezeTableName: true,
 		timestamps: false
 	});
-	Menu.associate = _associate;
 	return Menu;
-}
-
-// INTERNAL
-function _associate(models) {
-	models.Menu.belongsTo(models.Promotion, { foreignKey: 'id_promotion', targetKey: 'id' });
 }

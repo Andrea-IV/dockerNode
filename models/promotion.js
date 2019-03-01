@@ -31,11 +31,5 @@ module.exports = function (sequelize, DataTypes) {
         freezeTableName: true,
         timestamps: false
     });
-  Promotion.associate = _associate;
     return Promotion;
 };
-
-function _associate(models) {
-  models.Promotion.hasMany(models.Product, {foreignKey: 'id_promotion', sourceKey: 'id'});
-  models.Promotion.hasMany(models.Menu, {foreignKey: 'id_promotion', sourceKey: 'id'});
-}
