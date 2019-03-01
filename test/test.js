@@ -2,7 +2,7 @@ var server = require('../index.js');
 
 var request = require('supertest');
 
-var request = request('http://localhost:8080');
+var request = request('localhost:8081');
 
 var should = require('should');
 
@@ -18,6 +18,8 @@ describe('Commands' , function () {
                 .get('/command/getCommand?id_command=75')
                 .expect(200)
                 .end(function(err,res){
+                  console.log(err);
+                  console.log(res);
                   res.body.forEach((el) => {
                       var val = false;
                       if(el.id >= 1) {
@@ -25,7 +27,6 @@ describe('Commands' , function () {
                       } else {
                           val = false;
                       }
-                      
                       val.should.equal(true);
                   });
                   done();
